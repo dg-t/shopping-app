@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const shirtsRoutes = require('./routes/shirtsRoutes');
+const toyRoutes = require('./routes/toyRoutes');
 
 // Access env variables
 dotenv.config({ path: './config.env' });
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use('/api/v1/shirts', shirtsRoutes);
+app.use('/api/v1/toys', toyRoutes);
 
 
 // CONNECT TO MONGOOSE DATABASE

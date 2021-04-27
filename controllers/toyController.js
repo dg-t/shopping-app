@@ -1,15 +1,15 @@
-const Shirts = require('../models/shirtsModel');
+const Toy = require('../models/toyModel');
 
-exports.createShirts = async(req, res) => {
+exports.createToy = async(req, res) => {
     console.log(req.body);
     try {
-        const newShirt = await Shirts.create(req.body);
+        const newToy = await Toy.create(req.body);
 
         res.status(201).json({
             status: 'success',
             requestedAt: req.requestTime,
             data: {
-                shirt: newShirt
+                toy: newToy
             }
         });
     } catch (error) {
