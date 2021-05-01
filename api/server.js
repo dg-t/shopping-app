@@ -1,32 +1,11 @@
-const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
-const toyRoutes = require('./routes/toyRoutes');
 
 // Access env variables
 dotenv.config({ path: './config.env' });
 
 // EXPRESS APP
-const app = express();
-
-// MIDDLEWARES
-
-// Implement CORS
-app.use(cors());
-
-// Add data to request (req) object
-app.use(express.json());
-
-// Add current time to request
-app.use((req, res, next) => {
-    req.requestTime = new Date().toISOString();
-    next();
-});
-
-// ROUTES
-app.use('/api/v1/toys', toyRoutes);
-
+const app = require('./app');
 
 // CONNECT TO MONGOOSE DATABASE
 const DB = process.env.DATABASE.replace(
