@@ -27,6 +27,9 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.use('/api/v1/toys', toyRoutes);
+app.use('/', function(req, res) {
+    res.send('Welcome to Pika\'s store !')
+});
 
 // Handle unhandled routes
 app.all('*', (req, res, next) => {
